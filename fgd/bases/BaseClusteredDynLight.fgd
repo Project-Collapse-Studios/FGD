@@ -7,4 +7,11 @@
 		2: "Static Bounce"
 		3: "Fully Dynamic"
 		]
+
+	_dynamic_priority(choices) : "Dynamic Priority" : 1 : "States how important it is for this light to be dynamic, in lower spec pcs this light will turn static on Low/Medium, High means it's always dynamic." =
+	[
+		0: "Low"
+		1: "Medium"
+		2: "High"
+	]
 	]
