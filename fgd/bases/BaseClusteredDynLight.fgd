@@ -9,14 +9,21 @@
 	_lightmode(choices) : "Light mode" : 2 = 
 		[
 		0: "Static"
-		1: "Specular"
 		2: "Static Bounce"
 		3: "Fully Dynamic"
 		]
 		
 	texturename(string) : "Cookie Texture Name" : "" : "The cookie texture to use for the light. An empty value means no cookie texture."
 	textureframe(integer) : "Cookie Texture Frame" : 0 : "The frame of the cookie texture to use for the light."
+  
+  _dynamic_priority(choices) : "Dynamic Priority" : 1 : "States how important it is for this light to be dynamic, in lower spec pcs this light will turn static on Low/Medium, High means it's always dynamic." =
+	[
+		0: "Low"
+		1: "Medium"
+		2: "High"
+	]
 	
 	input SetCookieTexture(string) : "Set the cookie texture of this light. An empty value means no cookie texture."
 	input SetCookieTextureFrame(integer) : "Set the frame texture of the cookie texture for this light."
+  
 	]
