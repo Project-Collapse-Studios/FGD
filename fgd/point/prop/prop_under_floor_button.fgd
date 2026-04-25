@@ -8,6 +8,7 @@
 	model(studio) : "Button model" : "models/props_underground/underground_floor_button.mdl" : "The model to be used in game"
 
 	// Outputs
+	output OnPressedPlayer(void) : "Called when the button has been pressed by any player."
 	output OnPressedBlue(void) : "Called in Coop when the button has been pressed by ATLAS."
 	output OnPressedOrange(void) : "Called in Coop when the button has been pressed by P-Body."
 	]
