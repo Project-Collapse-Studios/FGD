@@ -3,6 +3,20 @@
 	sphere(fademindist) sphere(fademaxdist)
 = BaseEntityAnimating
 	[
+	linedivider_animbase[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "Oops, you must've misclicked."
+	
+	solid[engine](integer) : "Collisions": 6
+	solid(choices) : "Collisions" : 6 : "Method of collision for this entity. Can be changed at runtime with AddOutput." =
+		[
+		0: "None"
+		1: "BSP (QPhysics)"
+		2: "Bounding Box"
+		3: "Oriented Bounding Box"
+		4: "Oriented Bounding Box, constrained to Yaw only"
+		5: "Custom (defined per-entity, if not defined the entity will have bizarre collision behavior)"
+		6: "VPhysics"
+		]
+
 	effects[engine](integer) : "Effect Flags" : 0
 	effects(choices) : "Effect Flags" : 0 : "For configuring visual effects. If you want to combine effects, turn SmartEdit off and add the effect numbers together, i.e. 64 + 8 = 72." =
 		[
@@ -24,29 +38,28 @@
 		16384 : "No CSM"
 		]
 	
-	solid[engine](integer) : "Collisions": 6
-	solid(choices) : "Collisions" : 6 : "Method of collision for this entity. Can be changed at runtime with AddOutput." =
-		[
-		0: "None"
-		1: "BSP (QPhysics)"
-		2: "Bounding Box"
-		3: "Oriented Bounding Box"
-		4: "Oriented Bounding Box, constrained to Yaw only"
-		5: "Custom (defined per-entity, if not defined the entity will have bizarre collision behavior)"
-		6: "VPhysics"
-		]
-
 	body(integer) : "Bodygroup" : 0 : "Body Groups allow turning on and off parts of a model, so sections can be shown or hidden dynamically."
 	setbodygroup(integer) : "(Set) Body Group" : 0 :  "Identical to Body Group (body), ask Valve why this is duplicated. Body Groups allow turning on and off parts of a model, so sections can be shown or hidden dynamically."
 	
 	texframeindex(integer) : "Texture Frame" : : "The frame number for any animated textures on this entity."
 	hitboxset(string) : "Hitbox Set" : : "Sets the $hboxset to use for collision testing."
-	
-	modelscale(float) : "Model Scale" : : "A multiplier for the size of the model. Negative values are accepted. Does not alter the physics collisions in most cases, however. Negative values can crash the game!"
-	
+		
 	AllowSilentDissolve[+P2](boolean) : "Allow SilentDissolve input" : 1 : "Allow the SilentDissolve input to dissolve this object."
+	modelscale(float) : "Model Scale" : : "A multiplier for the size of the model. Negative values are accepted. Does not alter the physics collisions in most cases, however. Negative values can crash the game!"
+
+	linedivider_animbase2[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "Oops, you must've misclicked."
 	
-	linedivider_animbase[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "Oops, you must've misclicked."
+	disableflashlight(boolean) : "Disable clustered lights" : 0 : "Used to disable clustered lighting and shadows on this entity."
+	disableshadowdepth(boolean) : "Disable ShadowDepth" : 0 : "Used to disable rendering into shadow depth (for clustered lights) for this entity."
+	disablereceiveshadows(boolean) : "Disable Receiving Shadows?" : 0 : "Prevents dynamic shadows (e.g. player and prop shadows) from appearing on this entity."
+
+	shadowdepthnocache(choices) : "Projected Texture Cache" : "0" : "Used to hint projected texture system whether it is sufficient to cache shadow volume of this entity or to force render it every frame instead." =
+		[
+		0: "Default"
+		1: "No cache = render every frame"
+		2: "Cache it = render only once"
+		]
+	shadowdepthnocache[engine](integer): "": 0
 
 	LightingOrigin(target_destination) : "Lighting Origin" :  : "Select any entity (not info_lighting!) from which to sample lighting instead of the entity's origin."
 	LightingOriginHack(target_destination) : "Lighting Origin Offset" :  : "The info_lighting_relative from which to sample lighting instead of the entity's origin."
@@ -59,18 +72,7 @@
 		"Numbers smaller than 1 cause the prop to fade out at further distances, " +
 		"and greater than 1 cause it to fade out at closer distances."
 	
-	disablereceiveshadows(boolean) : "Disable Receiving Shadows?" : 0 : "Prevents dynamic shadows (e.g. player and prop shadows) from appearing on this entity."
-	disableshadowdepth(boolean) : "Disable ShadowDepth" : 0 : "Used to disable rendering into shadow depth (for clustered lights) for this entity."
-	shadowdepthnocache(choices) : "Projected Texture Cache" : "0" : "Used to hint projected texture system whether it is sufficient to cache shadow volume of this entity or to force render it every frame instead." =
-		[
-		0: "Default"
-		1: "No cache = render every frame"
-		2: "Cache it = render only once"
-		]
-	shadowdepthnocache[engine](integer): "": 0
-	disableflashlight(boolean) : "Disable clustered lights" : 0 : "Used to disable clustered lighting and shadows on this entity."
-
-	linedivider_anim[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "Oops, you must've misclicked."
+	linedivider_animbase3[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "Oops, you must've misclicked."
 
 	// Inputs
 	input Skin(integer) : "Changes the model skin to the specified number."

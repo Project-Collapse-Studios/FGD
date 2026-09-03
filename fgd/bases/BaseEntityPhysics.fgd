@@ -4,6 +4,9 @@
 	sphere(fademindist) sphere(fademaxdist)
 = BaseEntityPhysics
 	[
+
+	linedivider_physentbase1[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "Oops, you must've misclicked."
+
 	solid[engine](integer) : "Collisions" : 6
 	solid(choices) : "Collisions" : 6 : "Method of collision for this entity. Can be changed at runtime with AddOutput." =
 		[
@@ -16,8 +19,17 @@
 		6: "VPhysics"
 		]
 
+	modelscale(float) : "Model Scale" : : "A multiplier for the size of the model. Negative values are accepted. Does not alter the physics collisions in most cases, however. Negative values can crash the game!"
+
 	body(integer) : "Bodygroup" : 0 : "Sets the body group index for the model, starting with 0, if available."
 	texframeindex(integer) : "Texture Frame" : : "The frame number for any animated textures on this entity."
+	
+	AllowSilentDissolve[+P2](boolean) : "Allow SilentDissolve input" : 1 : "Allow the SilentDissolve input to dissolve this object."
+
+	linedivider_physbase1[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "Oops, you must've misclicked."
+
+	disablereceiveshadows(boolean) : "Disable Receiving Shadows?" : 0 : "Prevents dynamic shadows (e.g. player and prop shadows) from appearing on this entity."
+	disableshadowdepth(boolean) : "Disable ShadowDepth" : 0 : "Used to disable rendering into shadow depth (for clustered lights) for this entity."
 
 	LightingOrigin(target_destination) : "Lighting Origin" :  : "Select any entity (not info_lighting!) from which to sample lighting instead of the entity's origin."
 	LightingOriginHack(target_destination) : "Lighting Origin Offset" :  : "The info_lighting_relative from which to sample lighting instead of the entity's origin."
@@ -29,14 +41,6 @@
 		"Using 0 here turns off the forcible fades. " +
 		"Numbers smaller than 1 cause the prop to fade out at further distances, " +
 		"and greater than 1 cause it to fade out at closer distances."
-
-	disablereceiveshadows(boolean) : "Disable Receiving Shadows?" : 0 : "Prevents dynamic shadows (e.g. player and prop shadows) from appearing on this entity."
-	disableshadowdepth(boolean) : "Disable ShadowDepth" : 0 : "Used to disable rendering into shadow depth (for clustered lights) for this entity."
-	modelscale(float) : "Model Scale" : : "A multiplier for the size of the model. Negative values are accepted. Does not alter the physics collisions in most cases, however. Negative values can crash the game!"
-
-	AllowSilentDissolve[+P2](boolean) : "Allow SilentDissolve input" : 1 : "Allow the SilentDissolve input to dissolve this object."
-
-	linedivider_phys[!engine](string) readonly : "----------------------------------------------------------------------------------------------------------" : : "One thing..."
 
 	// Inputs
 	input Skin(integer) : "Changes the model skin to the specified number."
